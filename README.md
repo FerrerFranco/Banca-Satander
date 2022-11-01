@@ -13,5 +13,7 @@ Ya una vez, nos encontremos trabajando con el set de datos, comenzamos a diseña
 
 Como resultado de las querys de consulta, con las que alimentaremos las tablas, terminamos por diseñar el modelo de datos. Este será decidido con el quipo, y validado con los agentes del negocio.
 
+2) El modelo de datos a presentar es el siguiente:
+
 ![image](https://user-images.githubusercontent.com/105885683/199309454-cc29a576-1566-4678-9334-309a93030d93.png)
 
