@@ -21,106 +21,208 @@ Como resultado de las querys de consulta, con las que alimentaremos las tablas, 
 3)
 
 ----------------///////////-------------
+
 /*
 Query: "Fact_Mov_Loqueos_HB"
 
 Autor: Ferrer, Franco.
 
 Fecha: 01/11/2022
+
 */
 
 SELECT DISTINCT
 
 table1.SESSION_ID
+
 ,usr.USER_ID
+
 ,evento.EVENT_ID
+
 ,table1.USER_CITY
+
 ,table1.SERVER_TIME
+
 ,table1.DEVICE_BROWSER
+
 ,table1.DEVICE_OS
+
 ,table1.DEVICE_MOBILE
+
 ,table1.TIME_SPENT
+
 FROM "datos_data_engineer" AS table1
+
 LEFT JOIN "Dim_Usuaarios_HB" AS usr
+
 ON table1.USER_ID = usr.USER_ID
+
 LEFT JOIN "Dim_Tipo_Evento" AS evento
+
 table1.EVENTE_ID = evento.EVENT_ID
+
+
 
 ----------------///////////-------------
 
+
+
 /*
+
 Query: "Fact_Historica_Logueos_HB"
+
 Autor: Ferrer, Franco.
+
 Fecha: 01/11/2022
+
 */
 
+
+
 SELECT DISTINCT
+
 SESSION_ID
+
 ,MIN(SERVER_TIME) AS HISTORY_LOGIN
+
 ,USER_ID
+
 ,SEGMENT_ID
+
 ,EVENT_ID
+
 ,USER_CITY
+
 ,SERVER_TIME
+
 ,DEVICE_BROWSER
+
 ,DEVICE_OS
+
 ,DEVICE_MOBILE
+
 ,TIME_SPENT
+
 FROM "Fact_Mov_Loguin_HB"
+
 GROUP BY SESSION_ID
+
 ,USER_ID
+
 ,SEGMENT_ID
+
 ,EVENT_ID
+
 ,USER_CITY
+
 ,SERVER_TIME
+
 ,DEVICE_BROWSER
+
 ,DEVICE_OS
+
 ,DEVICE_MOBILE
+
 ,TIME_SPENT
+
+
 
 ----------------///////////-------------
+
 /*
+
+
 Query: "Dim_Tipo_Evento"
+
 Autor: Ferrer, Franco.
+
 Fecha: 01/11/2022
+
 */
 
+
+
 SELECT DISTINCT
+
 ,EVENT_ID
+
 ,EVENT_DESCRIPTION
+
 ,CRASH_DETECTION
+
 FROM "datos_data_engineer"
+
 LEFT JOIN  AS usr
+
 ON table1.USER_ID = usr.USER_ID
+
 LEFT JOIN "Dim_Tipo_Evento" AS evento
+
 table1.EVENTE_ID = evento.EVENT_ID
 
+
+
 ----------------///////////-------------
+
 /*
+
 Query: "Dim_Tipo_Segmento"
+
 Autor: Ferrer, Franco.
+
 Fecha: 01/11/2022
+
 */
 
+
+
 SELECT DISTINCT
+
 ,SEGMENT_ID
+
+
 ,SEGMENT_DESCRIPTION
+
+
 FROM "datos_data_engineer"
+
 
 
 ----------------///////////-------------
+
 /*
+
 Query: "Dim_Usuarios_HB"
+
 Autor: Ferrer, Franco.
+
 Fecha: 01/11/2022
+
 */
 
+
+
+
 SELECT DISTINCT
+
 ,USER_ID
+
 ,SEGEMENT_ID
+
 FROM "datos_data_engineer"
+
+
 /*
+
+
 "Es necesario hacer un JOIN con alguna tabla maestro para asegurar la unicidad de los datos del modelo"
+
 */
+
+
+
+
+
+
 
 
