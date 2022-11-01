@@ -17,7 +17,8 @@ Como resultado de las querys de consulta, con las que alimentaremos las tablas, 
 
 ![image](https://user-images.githubusercontent.com/105885683/199309454-cc29a576-1566-4678-9334-309a93030d93.png)
 
-3) 
+
+
 ----------------///////////-------------
 /*
 Query: "Fact_Mov_Loqueos_HB"
