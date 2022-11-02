@@ -18,7 +18,8 @@ Como resultado de las querys de consulta, con las que alimentaremos las tablas, 
 ![image](https://user-images.githubusercontent.com/105885683/199309454-cc29a576-1566-4678-9334-309a93030d93.png)
 
 
-3)
+3) Querys de consulta para cargar datos en las tablas del modelo:
+
 
 ----------------///////////-------------
 
@@ -219,7 +220,9 @@ FROM "datos_data_engineer"
 
 */
 
+
 4) Query KPI retencion. Este genera los datos para levantar con una herramienta de visuaización.
+
 
 SELECT TOP 10
 
