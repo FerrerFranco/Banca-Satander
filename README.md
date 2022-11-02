@@ -18,7 +18,9 @@ Como resultado de las querys de consulta, con las que alimentaremos las tablas, 
 ![image](https://user-images.githubusercontent.com/105885683/199309454-cc29a576-1566-4678-9334-309a93030d93.png)
 
 
+
 3) Querys de consulta para cargar datos en las tablas del modelo:
+
 
 
 ----------------///////////-------------
@@ -221,7 +223,9 @@ FROM "datos_data_engineer"
 */
 
 
-4) Query KPI retencion. Este genera los datos para levantar con una herramienta de visuaización.
+4) 
+ 
+La Query para el KPI retencion. Este genera los datos para levantar con una herramienta de visuaización.
 
 
 SELECT TOP 10
@@ -246,19 +250,17 @@ ORDER BY SUM(TIME_SPENT) DESC
 
 
 
-5) Utilziando googleColab.
+5) 
+
+Utilziando googleColab realizamos el script para cargar el archivo tsv y transformarlo en csv.
 
 import pandas as pd
 
-archivo = open('datos_data_engineer.tsv', encoding='utf-16-LE')
+df_tsv = pd.read_csv('datos_data_engineer.tsv', encoding='utf-16-LE',sep='\t',index_col="id", parse_dates=True).dropna()
 
-##paht_data = pd.read_table(archivo, sep='\t')
+df_tsv
 
-tsv_data = pd.read_table(archivo, sep='\t',index_col="id", parse_dates=True).dropna()
-
-tsv_data.to_csv('new_datos_data_engineer.csv', sep=',')
-
-tsv_data
+df_tsv.to_csv('new_datos_banca_santander.csv', sep=',')
 
 
 
