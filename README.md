@@ -260,7 +260,7 @@ df_tsv = pd.read_csv('datos_data_engineer.tsv', encoding='utf-16-LE',sep='\t',in
 
 df_tsv
 
-df_tsv.to_csv('new_datos_banca_santander.csv', sep=',')
+df_tsv.to_csv('datos_banca_santander.csv',encoding='utf-8', sep=',')
 
 
 
