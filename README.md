@@ -219,6 +219,44 @@ FROM "datos_data_engineer"
 
 */
 
+4) Query KPI retencion. Este genera los datos para levantar con una herramienta de visuaización.
+
+SELECT TOP 10
+
+USER_ID
+
+,COUNT DISTINCT(SESSION_ID) AS q_logueos
+
+,SUM(TIME_SPENT) AS tiempo_session
+
+FROM "Fact_Mov_Logueos_HB"
+
+WHERE
+
+BETWEEN CAST(SERVER_TIME, AS DATE) 
+
+AND DATEADD("M", -1, CAST(SERVER_TIME, AS DATE))
+
+GROUP BY USER_ID, SERVER_TIME
+
+ORDER BY SUM(TIME_SPENT) DESC
+
+
+
+5) Utilziando googleColab.
+
+import pandas as pd
+
+archivo = open('datos_data_engineer.tsv', encoding='utf-16-LE')
+
+##paht_data = pd.read_table(archivo, sep='\t')
+
+tsv_data = pd.read_table(archivo, sep='\t',index_col="id", parse_dates=True).dropna()
+
+tsv_data.to_csv('new_datos_data_engineer.csv', sep=',')
+
+tsv_data
+
 
 
 
